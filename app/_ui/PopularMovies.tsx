@@ -30,8 +30,6 @@ export default async function PopularMovies() {
   const data = await res.json();
   const top5Movies = data.results.slice(0, 5);
 
-  console.log(top5Movies);
-
   return (
     <section id="topRated" className="overflow-x-hidden pb-30">
       <h3 className="py-7 text-center text-3xl">Top 5 Popular Movies</h3>

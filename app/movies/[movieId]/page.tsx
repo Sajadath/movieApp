@@ -1,11 +1,11 @@
 import MoviesPageDetails from "@/app/_components/MoviesPageDetails";
 import React from "react";
 
-interface PageParams {
-  movieId: string;
-}
-
-export default async function Page({ params }: { params: PageParams }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ movieId: string }>;
+}) {
   const { movieId } = await params;
 
   return (
