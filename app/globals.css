@@ -1,0 +1,41 @@
+@import "tailwindcss";
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #000000;
+  color: #ffffff;
+}
+@layer theme {
+  /* Red Neon Shadow */
+  .neon-shadow-red {
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px rgba(255, 0, 0, 1))
+      drop-shadow(0 0 12px rgba(255, 0, 0, 0.8))
+      drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
+  }
+
+  /* Orange Neon Shadow */
+  .neon-shadow-orange {
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px rgba(255, 165, 0, 1))
+      drop-shadow(0 0 12px rgba(255, 165, 0, 0.8))
+      drop-shadow(0 0 20px rgba(255, 165, 0, 0.6));
+  }
+
+  /* Yellow Neon Shadow */
+  .neon-shadow-yellow {
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 0, 1))
+      drop-shadow(0 0 12px rgba(255, 255, 0, 0.8))
+      drop-shadow(0 0 20px rgba(255, 255, 0, 0.6));
+  }
+
+  /* Green Neon Shadow */
+  .neon-shadow-green {
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px rgba(0, 255, 0, 1))
+      drop-shadow(0 0 12px rgba(0, 255, 0, 0.8))
+      drop-shadow(0 0 20px rgba(0, 255, 0, 0.6));
+  }
+}
