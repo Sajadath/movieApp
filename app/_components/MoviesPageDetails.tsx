@@ -69,7 +69,7 @@ export default function MoviesPageDetails({ movieId }: { movieId: string }) {
           </div>
           <img
             className="h-[200px] rounded-t-2xl object-cover p-4 sm:h-[300px] md:h-full md:w-[300px] md:rounded-t-none md:rounded-l-2xl"
-            src={`${IMAGE_URL}/${movie.poster_path}`}
+            src={`${IMAGE_URL}${movie.poster_path}`}
             alt=""
           />
           <div className="flex min-w-[100px] flex-col justify-center px-4 py-4 md:min-w-[300px]">
@@ -105,7 +105,7 @@ export default function MoviesPageDetails({ movieId }: { movieId: string }) {
       </div>
       <img
         className="absolute top-0 right-0 bottom-0 left-0 -z-10 h-full w-full object-cover"
-        src={`${IMAGE_URL}/${movie.backdrop_path}`}
+        src={`${IMAGE_URL}${movie.backdrop_path}`}
         alt=""
       />
     </div>

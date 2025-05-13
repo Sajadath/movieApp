@@ -42,7 +42,7 @@ export default async function PopularMovies() {
           >
             <img
               className="mx-auto w-[300px] sm:w-[320px]"
-              src={`${IMAGE_URL}/${result.backdrop_path}`}
+              src={`${IMAGE_URL}${result.backdrop_path}`}
               alt="Popular Movie"
             />
             <h2 className="absolute right-0 bottom-0 left-0 bg-black/50 px-2 py-1 text-center text-xl text-white">

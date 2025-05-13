@@ -50,12 +50,8 @@ export default function SearchInput() {
   }
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setNoMoviesFound(false);
-      fetchMovies(query);
-    }, 300);
-
-    return () => clearTimeout(timeout);
+    setNoMoviesFound(false);
+    fetchMovies(query);
   }, [query]);
 
   return (
@@ -66,7 +62,9 @@ export default function SearchInput() {
         {loading && <SearchedMoviesLoading />}
         {error && <p className="py-4 text-center"> {error}</p>}
         {noMoviesFound && <p className="py-4 text-center">No Movies found!</p>}
-        {movies.length > 0 && <SearchedMovies movies={movies} />}
+        {movies.length > 0 && !loading ? (
+          <SearchedMovies movies={movies} />
+        ) : null}
       </div>
       <input
         onFocus={() => setInputFocused(true)}

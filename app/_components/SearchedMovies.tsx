@@ -4,7 +4,6 @@ import Link from "next/link";
 
 export default function SearchedMovies({ movies }: { movies: MoviesArray }) {
   const IMAGE_URL = process.env.NEXT_PUBLIC_IMAGE_URL;
-  console.log(movies);
 
   return (
     <ul className="w-full">
@@ -17,7 +16,7 @@ export default function SearchedMovies({ movies }: { movies: MoviesArray }) {
             <div className="relative h-25 w-17">
               {movie.poster_path ? (
                 <img
-                  className="h-25"
+                  className={`h-25`}
                   src={`${IMAGE_URL}/${movie.poster_path}`}
                   alt={`movie picture`}
                 />
