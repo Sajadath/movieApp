@@ -63,7 +63,7 @@ export default function MoviesPageDetails({ movieId }: { movieId: string }) {
   return (
     <div className="relative h-full w-full overflow-hidden">
       <div className="flex h-full w-full items-center justify-center bg-black/50 backdrop-blur-xs">
-        <div className="relative flex max-w-[65vw] flex-col overflow-y-auto rounded-2xl bg-black/70 md:flex-row lg:max-w-[65vw]">
+        <div className="relative flex max-w-[70vw] flex-col overflow-y-auto rounded-2xl bg-black/70 md:flex-row lg:max-w-[65vw]">
           <div className="absolute top-2 right-2">
             <CircularProgressBar rating={movie.vote_average} />
           </div>
@@ -74,20 +74,20 @@ export default function MoviesPageDetails({ movieId }: { movieId: string }) {
           />
           <div className="flex flex-col justify-center px-4 py-4">
             <h1 className="text-xl font-bold lg:text-3xl">{movie.title}</h1>
-            <p className="my-4 text-xs lg:max-w-[80%] lg:text-base">
+            <p className="my-4 grow content-center text-xs lg:max-w-[80%] lg:text-base">
               {movie.overview}
             </p>
 
-            <div>
-              <p className="text-xs lg:text-base">
-                Made By:
-                {movie.production_countries.map(
-                  (country) => ` ${country.name}, `,
-                )}
-              </p>
-              <h2 className="text-xs lg:text-base">
-                Release Date: {movie.release_date.replaceAll("-", "/")}
-              </h2>
+            <p className="text-xs lg:text-base">
+              Made By:
+              {movie.production_countries.map(
+                (country) => ` ${country.name}, `,
+              )}
+            </p>
+            <h2 className="text-xs lg:text-base">
+              Release Date: {movie.release_date.replaceAll("-", "/")}
+            </h2>
+            <div className="grow content-center">
               <h2 className="mt-2 text-xs lg:text-base">Genres:</h2>
               <div className="mt-2 flex flex-wrap gap-2">
                 {movie.genres.map((genre, index) => (
