@@ -8,7 +8,8 @@ type CircularProgressBarProps = {
 const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
   rating,
 }) => {
-  const normalizedRating = Math.min(Math.max(rating, 0), 10); // Ensure rating is between 0 and 10
+  const incNumber = Math.min(Math.max(rating, 0), 10); // Ensure rating is between 0 and 10
+  const normalizedRating = Math.round(incNumber);
   const circumference = 2 * Math.PI * 45; // Circle with radius 45
   const progress = (normalizedRating / 10) * 100;
 
@@ -62,7 +63,7 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         </svg>
 
         {/* Rating Text */}
-        <div className="absolute inset-0 flex items-center justify-center text-xs font-bold text-white">
+        <div className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white/90">
           {normalizedRating}/10
         </div>
       </div>

@@ -35,7 +35,6 @@ export default function MoviesPageDetails({ movieId }: { movieId: string }) {
           throw new Error("Failed to fetch movie");
         }
         const data = await response.json();
-
         setMovie(data);
       } catch (error) {
         console.error("Error fetching movie details:", error);
@@ -64,40 +63,41 @@ export default function MoviesPageDetails({ movieId }: { movieId: string }) {
   return (
     <div className="relative h-full w-full overflow-hidden">
       <div className="flex h-full w-full items-center justify-center bg-black/50 backdrop-blur-xs">
-        <div className="flex max-w-[80vw] flex-col rounded-2xl bg-black/70 md:flex-row xl:max-w-[65vw]">
+        <div className="relative flex max-w-[65vw] flex-col overflow-y-auto rounded-2xl bg-black/70 md:flex-row lg:max-w-[65vw]">
+          <div className="absolute top-2 right-2">
+            <CircularProgressBar rating={movie.vote_average} />
+          </div>
           <img
-            width={300}
-            height={500}
-            className="w-[300px] object-cover p-4"
+            className="h-[200px] rounded-t-2xl object-cover p-4 sm:h-[300px] md:h-full md:w-[300px] md:rounded-t-none md:rounded-l-2xl"
             src={`${IMAGE_URL}/${movie.poster_path}`}
             alt=""
           />
-          <div className="content-center">
-            <h1 className="p-5 text-3xl font-bold">{movie.title}</h1>
-            <p className="my-4 max-w-[80%] px-4">{movie.overview}</p>
-            <div className="mt-8 flex items-center justify-between px-4">
-              <div>
-                <p>
-                  Made By:{" "}
-                  {movie.production_countries.map(
-                    (country) => ` ${country.name}, `,
-                  )}
-                </p>
-                <h2>Release Date: {movie.release_date.replaceAll("-", "/")}</h2>
-                <h2>Genres: </h2>
-                <div className="mt-2 flex gap-4">
-                  {movie.genres.map((genre, index) => (
-                    <p
-                      key={index}
-                      className="rounded bg-white px-2 text-sm font-semibold text-black"
-                    >
-                      {genre.name}
-                    </p>
-                  ))}
-                </div>
-              </div>
-              <div className="pr-10">
-                <CircularProgressBar rating={8} />
+          <div className="flex flex-col justify-center px-4 py-4">
+            <h1 className="text-xl font-bold lg:text-3xl">{movie.title}</h1>
+            <p className="my-4 text-xs lg:max-w-[80%] lg:text-base">
+              {movie.overview}
+            </p>
+
+            <div>
+              <p className="text-xs lg:text-base">
+                Made By:
+                {movie.production_countries.map(
+                  (country) => ` ${country.name}, `,
+                )}
+              </p>
+              <h2 className="text-xs lg:text-base">
+                Release Date: {movie.release_date.replaceAll("-", "/")}
+              </h2>
+              <h2 className="mt-2 text-xs lg:text-base">Genres:</h2>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {movie.genres.map((genre, index) => (
+                  <p
+                    key={index}
+                    className="rounded bg-white px-2 text-xs font-semibold text-black lg:text-sm"
+                  >
+                    {genre.name}
+                  </p>
+                ))}
               </div>
             </div>
           </div>
