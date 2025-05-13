@@ -12,7 +12,7 @@ export default function SearchedMovies({ movies }: { movies: MoviesArray }) {
             className="flex w-full gap-3 px-4 py-4 hover:bg-white/20"
             href={`/movies/${movie.id}`}
           >
-            <div className="relative h-30 w-20">
+            <div className="relative min-h-30 min-w-20">
               {movie.poster_path ? (
                 <img
                   className={`w-20`}
@@ -20,13 +20,13 @@ export default function SearchedMovies({ movies }: { movies: MoviesArray }) {
                   alt={`movie picture`}
                 />
               ) : (
-                <div className="h-25 w-17 content-center text-center">
+                <div className="h-25 w-20 content-center text-center">
                   <p>No Image</p>
                 </div>
               )}
             </div>
             <div>
-              <h2 className="mt-4">{movie.title}</h2>
+              <h2 className="mt-4 text-xs text-wrap">{movie.title}</h2>
               <h2 className="mt-4">{movie.release_date.split("-")[0]}</h2>
             </div>
           </a>

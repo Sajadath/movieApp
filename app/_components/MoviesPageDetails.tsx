@@ -32,10 +32,10 @@ export default function MoviesPageDetails({ movieId }: { movieId: string }) {
         );
         if (!response.ok) {
           setError("No Movie Found");
-          throw new Error("Failed to fetch movie");
         }
         const data = await response.json();
         setMovie(data);
+        document.title = data?.title ? data.title : "no movie found";
       } catch (error) {
         console.error("Error fetching movie details:", error);
         if (error instanceof Error) {
@@ -63,8 +63,8 @@ export default function MoviesPageDetails({ movieId }: { movieId: string }) {
   return (
     <div className="relative h-full w-full overflow-hidden">
       <div className="flex h-full w-full items-center justify-center bg-black/50 backdrop-blur-xs">
-        <div className="relative flex max-w-[70vw] flex-col overflow-y-auto rounded-2xl bg-black/70 md:flex-row lg:max-w-[65vw]">
-          <div className="absolute top-2 right-2">
+        <div className="relative flex max-w-[70vw] flex-col overflow-y-auto rounded-2xl bg-black/70 md:max-w-[80vw] md:flex-row lg:max-w-[65vw]">
+          <div className="absolute top-2 right-2 hidden sm:block">
             <CircularProgressBar rating={movie.vote_average} />
           </div>
           <img
