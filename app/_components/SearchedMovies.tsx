@@ -15,12 +15,10 @@ export default function SearchedMovies({ movies }: { movies: MoviesArray }) {
             className="flex w-full gap-3 px-4 py-4 hover:bg-white/20"
             href={`/movies/${movie.id}`}
           >
-            <div>
+            <div className="relative h-25 w-25">
               <Image
-                className="h-25"
+                fill
                 placeholder="blur"
-                width={20}
-                height={25}
                 src={`${IMAGE_URL}/${movie.poster_path}`}
                 alt={`movie picture`}
               />
