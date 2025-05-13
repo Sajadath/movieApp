@@ -72,7 +72,7 @@ export default function MoviesPageDetails({ movieId }: { movieId: string }) {
             src={`${IMAGE_URL}/${movie.poster_path}`}
             alt=""
           />
-          <div className="flex flex-col justify-center px-4 py-4">
+          <div className="flex min-w-[100px] flex-col justify-center px-4 py-4 md:min-w-[300px]">
             <h1 className="text-xl font-bold lg:text-3xl">{movie.title}</h1>
             <p className="my-4 grow content-center text-xs lg:max-w-[80%] lg:text-base">
               {movie.overview}
