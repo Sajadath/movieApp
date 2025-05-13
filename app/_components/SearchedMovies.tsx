@@ -14,7 +14,7 @@ export default function SearchedMovies({ movies }: { movies: MoviesArray }) {
             className="flex w-full gap-3 px-4 py-4 hover:bg-white/20"
             href={`/movies/${movie.id}`}
           >
-            <div className="relative">
+            <div className="relative h-25 w-17">
               {movie.poster_path ? (
                 <img
                   className="h-25"
